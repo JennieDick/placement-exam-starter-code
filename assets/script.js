@@ -8,82 +8,82 @@ let yourName = "Jennie Dick" // HINT: Replace this with your own name!
 let gb = 0      // Gingerbread
 let cc = 0      // Chocolate Chip
 let sugar = 0   // Sugar Sprinkle
-let total = 0
+let total = gb + cc + sugar
 
 // Code to update name display 
 document.getElementById('credit').textContent = `Created by ${yourName}`
 
 // Ginger Bread Counter
 let gbCountButton = document.querySelector("#qty-gb");
-let gbCount = localStorage.getItem("qtygb");
-    if (gbCount) {
-        gbCountButton.textContent = gbCount;
+let gb = localStorage.getItem("qtygb");
+    if (gb) {
+        gbCountButton.textContent = gb;
     };
 document.getElementById('add-gb').addEventListener('click', function() {
-    let gbCount = parseInt(gbCountButton.textContent);
-    gbCount = gbCount + 1;
-    gbCountButton.textContent = (gbCount);
-    localStorage.setItem("qtygb", gbCount);
+    let gb = parseInt(gbCountButton.textContent);
+    gb = gb + 1;
+    gbCountButton.textContent = (gb);
+    localStorage.setItem("qtygb", gb);
     console.log('Ginger bread + button was clicked!')
 });
 document.getElementById("minus-gb").addEventListener("click", function() {
-    let gbCount = parseInt(gbCountButton.textContent);
-    gbCount = gbCount - 1;
-    gbCountButton.textContent = (gbCount);
-    localStorage.setItem("qtygb", gbCount);
+    let gb = parseInt(gbCountButton.textContent);
+    gb = gb - 1;
+    gbCountButton.textContent = (gb);
+    localStorage.setItem("qtygb", gb);
     console.log("Ginger bread - button was clicked!");
 });
 
 //Chocolate Chip Counter
 let chocolateCountButton = document.querySelector("#qty-cc");
-let ccCount = localStorage.getItem("qtycc");
-    if (ccCount) {
-        chocolateCountButton.textContent = ccCount;
+let cc = localStorage.getItem("qtycc");
+    if (cc) {
+        chocolateCountButton.textContent = cc;
     };
 document.getElementById("add-cc").addEventListener("click", function() {
-    let ccCount = parseInt(chocolateCountButton.textContent);
-    ccCount = ccCount + 1;
-    chocolateCountButton.textContent = (ccCount);
-    localStorage.setItem("qtycc", ccCount);
+    let cc = parseInt(chocolateCountButton.textContent);
+    cc = cc + 1;
+    chocolateCountButton.textContent = (cc);
+    localStorage.setItem("qtycc", cc);
 });
 document.getElementById("minus-cc").addEventListener("click", function() {
-    let ccCount = parseInt(chocolateCountButton.textContent);
-    ccCount = ccCount - 1;
-    chocolateCountButton.textContent = (ccCount);
-    localStorage.setItem("qtycc", ccCount);
+    let cc = parseInt(chocolateCountButton.textContent);
+    cc = cc - 1;
+    chocolateCountButton.textContent = (cc);
+    localStorage.setItem("qtycc", cc);
 });
 
 //Sugar Sprinkle Counter
 let sugarCountButton = document.querySelector("#qty-sugar");
-let sugarCount = localStorage.getItem("qtysugar");
-    if (sugarCount) {
-        sugarCountButton.textContent = sugarCount;
+let sugar = localStorage.getItem("qtysugar");
+    if (sugar) {
+        sugarCountButton.textContent = sugar;
     };
 document.getElementById("add-sugar").addEventListener("click", function(){
-    let sugarCount = parseInt(sugarCountButton.textContent);
-    sugarCount = sugarCount + 1;
-    sugarCountButton.textContent = (sugarCount);
-    localStorage.setItem("qtysugar", sugarCount);
+    let sugar = parseInt(sugarCountButton.textContent);
+    sugar = sugar + 1;
+    sugarCountButton.textContent = (sugar);
+    localStorage.setItem("qtysugar", sugar);
 });
 document.getElementById("minus-sugar").addEventListener("click", function() {
-    let sugarCount = parseInt(sugarCountButton.textContent);
-    sugarCount = sugarCount - 1;
-    sugarCountButton.textContent = (sugarCount);
-    localStorage.setItem("qtysugar", sugarCount);
+    let sugar = parseInt(sugarCountButton.textContent);
+    sugar = sugar - 1;
+    sugarCountButton.textContent = (sugar);
+    localStorage.setItem("qtysugar", sugar);
 });
 
 //Total Cookies
 
-let totalCookies = document.querySelector("#qty-total");
+let total = document.querySelector("#qty-total");
 
 let cookieTally = [
-    {name: "gb", count: gbCount},
-    {name: "cc", count: ccCount},
-    {name: "sugar", count: sugarCount}
+    {name: "gb", count: gb},
+    {name: "cc", count: cc},
+    {name: "sugar", count: sugar}
 ];
 let sum = []
 
 for (let i = 0; i < cookieTally.length; i++){
     sum = sum + cookieTally[i].count;
 };
-totalCookies.textContent = (gbCount+ccCount+sugarCount);
+total.textContent = (gb+cc+sugar);
